@@ -1,0 +1,14 @@
+---
+- name: Install Icinga package repository
+  yum_repository:
+    name: icinga-stable-release
+    description: ICINGA (stable release for epel)
+    baseurl: http://packages.icinga.com/epel/$releasever/release/
+    gpgkey: https://packages.icinga.com/icinga.key
+    gpgcheck: yes
+
+- name: Install Icinga 2
+  yum:
+    name: "{{ icinga2_packages|flatten }}"
+    state: present
+    update_cache: yes

@@ -1,0 +1,5 @@
+---
+icinga2_packages:
+  - icinga2
+icinga2_service_state: started
+icinga2_service_enabled: true

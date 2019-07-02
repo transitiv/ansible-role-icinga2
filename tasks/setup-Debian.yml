@@ -1,0 +1,18 @@
+---
+- name: Install Icinga repository key
+  apt_key:
+    id: F51A91A5EE001AA5D77D53C4C6E319C334410682
+    url: https://packages.icinga.com/icinga.key
+    keyring: /etc/apt/trusted.gpg.d/icinga.gpg
+    state: present
+
+- name: Install Icinga package repository
+  apt_repository:
+    repo: deb https://packages.icinga.com/{{ ansible_distribution|lower }} icinga-{{ ansible_distribution_release }} main
+    state: present
+
+- name: Install Icinga 2
+  apt:
+    name: "{{ icinga2_packages|flatten }}"
+    state: present
+    update_cache: yes
