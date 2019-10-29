@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: icinga2
   author: atj
   description: Installs Icinga 2 from the official package repositories.
   company: Transitiv Technologies Ltd.
