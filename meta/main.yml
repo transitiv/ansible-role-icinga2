@@ -1,0 +1,27 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: atj
+  description: Installs Icinga 2 from the official package repositories.
+  company: Transitiv Technologies Ltd.
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+        - buster
+  galaxy_tags:
+    - icinga
+    - icinga2
+    - monitoring
