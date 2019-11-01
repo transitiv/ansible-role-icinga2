@@ -1,26 +1,28 @@
 ---
 - name: Converge
   hosts: all
+  become: true
 
   roles:
-    - role: ansible-role-icinga2
+    - role: transitiv.icinga2
 
   pre_tasks:
-    - name: Install required packages
+    - name: Install required packages on Debian
       apt:
         name:
           - apt-transport-https
           - gnupg
         update_cache: true
       when: ansible_os_family == 'Debian'
-      changed_when: false
-    - name: Install Debian Backports repository
+
+    - name: Install Backports repository on Debian Stretch
       apt_repository:
         repo: deb http://deb.debian.org/debian {{ ansible_distribution_release }}-backports main
         state: present
         update_cache: yes
-      when: ansible_os_family == 'Debian' and ansible_distribution_release == 'stretch'
-      changed_when: false
+      when:
+        - ansible_os_family == 'Debian'
+        - ansible_distribution_release == 'stretch'
 
   post_tasks:
     - name: Ensure Icinga 2 is installed
