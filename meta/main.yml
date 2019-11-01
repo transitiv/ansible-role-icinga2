@@ -8,6 +8,7 @@ galaxy_info:
   company: Transitiv Technologies Ltd.
   license: MIT
   min_ansible_version: 2.4
+  travis_status_url: https://travis-ci.com/transitiv/ansible-role-icinga2.svg?branch=master
   platforms:
     - name: EL
       versions:

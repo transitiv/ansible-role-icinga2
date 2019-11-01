@@ -1,6 +1,6 @@
 # Ansible Role: Icinga 2
 
-[![Build Status](https://travis-ci.org/transitiv/ansible-role-icinga2.svg?branch=master)](https://travis-ci.org/transitiv/ansible-role-icinga2)
+[![Build Status](https://travis-ci.com/transitiv/ansible-role-icinga2.svg?branch=master)](https://travis-ci.com/transitiv/ansible-role-icinga2)
 
 This role installs Icinga 2 from the [official package repositories](https://packages.icinga.com/) on systems running Debian/Ubuntu and RHEL/CentOS.
 
