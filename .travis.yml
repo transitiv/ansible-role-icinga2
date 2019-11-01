@@ -18,3 +18,12 @@ install:
 
 script:
   - molecule test
+
+# rename project directory to match Galaxy role name
+before_script:
+  - cd ../
+  - mv ansible-role-icinga2 transitiv.icinga2
+  - cd transitiv.icinga2
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
