@@ -1,17 +1,13 @@
 ---
-- name: Converge
-  hosts: all
-  become: true
-
-  roles:
-    - role: transitiv.icinga2
-
-  pre_tasks:
+- hosts: all
+  tasks:
     - name: Install required packages on Debian
       apt:
         name:
-          - apt-transport-https
+          # required to add key to apt keyring
           - gnupg
+          # required to verify icinga2 is running
+          - procps
         update_cache: true
       when: ansible_os_family == 'Debian'
 
@@ -24,10 +20,10 @@
         - ansible_os_family == 'Debian'
         - ansible_distribution_release == 'stretch'
 
-  post_tasks:
-    - name: Ensure Icinga 2 is installed
-      stat:
-        path: /usr/sbin/icinga2
-      register: result
-      changed_when: false
-      failed_when: result.stat.isreg is not defined or not result.stat.isreg
+    - name: Install apt-transport-https on older Debian/Ubuntu versions
+      apt:
+        name:
+          - apt-transport-https
+      when:
+        - ansible_os_family == 'Debian'
+        - ansible_distribution_release in ['jessie', 'stretch', 'xenial']
