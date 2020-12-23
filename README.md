@@ -1,6 +1,6 @@
 # Ansible Role: Icinga 2
 
-[![Build Status](https://travis-ci.com/transitiv/ansible-role-icinga2.svg?branch=master)](https://travis-ci.com/transitiv/ansible-role-icinga2)
+![Build Status](https://github.com/transitiv/ansible-role-icinga2/workflows/CI/badge.svg)
 
 This role installs Icinga 2 from the [official package repositories](https://packages.icinga.com/) on systems running Debian/Ubuntu and RHEL/CentOS.
 
@@ -48,4 +48,4 @@ This role is available under the terms of the MIT license.
 
 ## Author
 
-This role was created by [Transitiv Technologes Ltd.](https://www.transitiv.co.uk).
+This role was created by [Transitiv Technologes Ltd](https://www.transitiv.co.uk).
