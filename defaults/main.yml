@@ -4,7 +4,7 @@ icinga2_repository_key_path: /usr/share/keyrings/icinga2.asc
 #icinga2_repository_key_checksum:
 
 icinga2_package_state: present
-icinga2_package_policy_rc_d: 101
+#icinga2_package_policy_rc_d: 101
 
 icinga2_packages:
   - icinga2

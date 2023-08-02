@@ -32,7 +32,7 @@
   ansible.builtin.apt:
     name: "{{ _icinga2_packages | flatten }}"
     state: "{{ icinga2_package_state }}"
-    policy_rc_d: "{{ icinga2_package_policy_rc_d }}"
+    policy_rc_d: "{{ icinga2_package_policy_rc_d | d(omit) }}"
   ignore_errors: "{{ ansible_check_mode }}"
   vars:
     _icinga2_packages: "{{ icinga2_packages + icinga2_group_packages + icinga2_host_packages }}"
