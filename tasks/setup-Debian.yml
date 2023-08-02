@@ -30,5 +30,7 @@
 
 - name: Install Icinga 2
   apt:
-    name: "{{ icinga2_packages|flatten }}"
-    state: present
+    name: "{{ _icinga2_packages | flatten }}"
+    state: "{{ icinga2_package_state }}"
+  vars:
+    _icinga2_packages: "{{ icinga2_packages + icinga2_group_packages + icinga2_host_packages }}"

@@ -9,6 +9,8 @@
 
 - name: Install Icinga 2
   yum:
-    name: "{{ icinga2_packages|flatten }}"
-    state: present
+    name: "{{ icinga2_packages | flatten }}"
+    state: "{{ icinga2_package_state }}"
     update_cache: yes
+  vars:
+    _icinga2_packages: "{{ icinga2_packages + icinga2_group_packages + icinga2_host_packages }}"
