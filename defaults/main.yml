@@ -1,4 +1,8 @@
 ---
+icinga2_repository_key_url: https://packages.icinga.com/icinga.key
+icinga2_repository_key_path: /usr/share/keyrings/icinga2.asc
+#icinga2_repository_key_checksum:
+
 icinga2_packages:
   - icinga2
 icinga2_service_state: started
