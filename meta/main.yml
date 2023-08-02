@@ -8,8 +8,7 @@ galaxy_info:
   description: Installs Icinga 2 from the official package repositories.
   company: Transitiv Technologies Ltd.
   license: MIT
-  min_ansible_version: 2.4
-  travis_status_url: https://github.com/transitiv/ansible-role-icinga2/workflows/CI/badge.svg
+  min_ansible_version: 2.14
   issue_tracker_url: https://github.com/transitiv/ansible-role-icinga2/issues
   platforms:
     - name: EL
