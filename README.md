@@ -15,7 +15,7 @@ Root accesss is required for installing packages, so you must run it in a playbo
       become: yes
 ```
 
-Note that the EPEL repository must be enabled on CentOS/RHEL and the backports repository is required on Debian Stretch.
+Note that the EPEL repository must be enabled on CentOS/RHEL.
 
 ## Dependencies
 
@@ -26,9 +26,12 @@ This role has no dependencies.
 ```yaml
 icinga2_packages:
   - icinga2
+icinga2_group_packages:
+  - icinga2-ido-mysql
+icinga_host_packages: []
 ```
 
-Defines the package(s) installed by the role. This variable is "flattened" before it is used so it can contain nested lists if desired.
+Defines the package(s) installed by the role. The variables are combined and flattened before being used so can contain nested lists if desired.
 
 ```yaml
 icinga2_service_state: started
