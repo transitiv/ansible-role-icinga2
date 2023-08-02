@@ -4,8 +4,6 @@
     - name: Install required packages on Debian
       apt:
         name:
-          # required to add key to apt keyring
-          - gnupg
           # required to verify icinga2 is running
           - procps
         update_cache: true
