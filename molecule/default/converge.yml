@@ -1,9 +1,9 @@
 ---
-- name: converge
+- name: Converge
   hosts: all
   become: true
 
   tasks:
     - name: "Include transitiv.icinga2"
-      include_role:
+      ansible.builtin.include_role:
         name: transitiv.icinga2

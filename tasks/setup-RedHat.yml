@@ -1,6 +1,6 @@
 ---
 - name: Install Icinga package repository
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: icinga-stable-release
     description: ICINGA (stable release for epel)
     baseurl: http://packages.icinga.com/epel/$releasever/release/
@@ -8,7 +8,7 @@
     gpgcheck: yes
 
 - name: Install Icinga 2
-  yum:
+  ansible.builtin.yum:
     name: "{{ icinga2_packages | flatten }}"
     state: "{{ icinga2_package_state }}"
     update_cache: yes

@@ -3,12 +3,12 @@
   hosts: all
   tasks:
     - name: Ensure Icinga 2 is installed
-      stat:
+      ansible.builtin.stat:
         path: /usr/sbin/icinga2
       register: result
       changed_when: false
       failed_when: result.stat.isreg is not defined or not result.stat.isreg
 
     - name: Ensure Icinga 2 is running
-      command: pgrep -x icinga2
+      ansible.builtin.command: pgrep -x icinga2
       changed_when: false

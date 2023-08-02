@@ -1,8 +1,9 @@
 ---
 - hosts: all
+  name: Prepare
   tasks:
     - name: Install required packages on Debian
-      apt:
+      ansible.builtin.apt:
         name:
           # required to verify icinga2 is running
           - procps

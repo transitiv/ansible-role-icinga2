@@ -1,25 +1,25 @@
 ---
 - name: Install Icinga repository key
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ icinga2_repository_key_url }}"
     dest: "{{ icinga2_repository_key_path }}"
     checksum: "{{ icinga2_repository_key_checksum | d(omit) }}"
     mode: "0644"
 
 - name: Remove Icinga repository key from /etc/apt/trusted.gpg.d
-  file:
+  ansible.builtin.file:
     path: /etc/apt/trusted.gpg.d/icinga.gpg
     state: absent
 
 - name: Remove Icinga package repository without signed-by option
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: >-
       deb https://packages.icinga.com/{{ ansible_distribution | lower }}
       icinga-{{ ansible_distribution_release }} main
     state: absent
 
 - name: Add Icinga package repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: >-
       deb [signed-by={{ icinga2_repository_key_path }}]
       https://packages.icinga.com/{{ ansible_distribution | lower }}
@@ -29,7 +29,7 @@
     update_cache: true
 
 - name: Install Icinga 2
-  apt:
+  ansible.builtin.apt:
     name: "{{ _icinga2_packages | flatten }}"
     state: "{{ icinga2_package_state }}"
     policy_rc_d: "{{ icinga2_package_policy_rc_d }}"

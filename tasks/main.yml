@@ -1,8 +1,9 @@
 ---
-- include_tasks: "setup-{{ ansible_os_family }}.yml"
+- name: Include OS specific tasks
+  ansible.builtin.include_tasks: "setup-{{ ansible_os_family }}.yml"
 
 - name: Enable and start Icinga
-  service:
+  ansible.builtin.service:
     name: icinga2
     enabled: "{{ icinga2_service_enabled }}"
     state: "{{ icinga2_service_state }}"
