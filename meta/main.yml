@@ -18,11 +18,9 @@ galaxy_info:
         - 8
     - name: Ubuntu
       versions:
-        - bionic
         - focal
     - name: Debian
       versions:
-        - stretch
         - buster
         - bullseye
   galaxy_tags:

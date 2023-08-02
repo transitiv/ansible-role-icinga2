@@ -10,20 +10,3 @@
           - procps
         update_cache: true
       when: ansible_os_family == 'Debian'
-
-    - name: Install Backports repository on Debian Stretch
-      apt_repository:
-        repo: deb http://deb.debian.org/debian {{ ansible_distribution_release }}-backports main
-        state: present
-        update_cache: yes
-      when:
-        - ansible_os_family == 'Debian'
-        - ansible_distribution_release == 'stretch'
-
-    - name: Install apt-transport-https on older Debian/Ubuntu versions
-      apt:
-        name:
-          - apt-transport-https
-      when:
-        - ansible_os_family == 'Debian'
-        - ansible_distribution_release in ['jessie', 'stretch', 'xenial']
